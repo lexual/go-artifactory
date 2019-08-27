@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 	"path"
@@ -109,7 +110,7 @@ func (c *Client) NewJSONEncodedRequest(method, urlStr string, body interface{}) 
 	if err != nil {
 		return nil, err
 	}
-	fmt.Printf("%s: %s\n", urlStr, buf.String())
+	log.Printf("%s: %s\n", urlStr, buf.String())
 	req, err := c.NewRequest(method, urlStr, buf)
 	if err != nil {
 		return nil, err
