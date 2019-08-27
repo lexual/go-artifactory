@@ -109,6 +109,7 @@ func (c *Client) NewJSONEncodedRequest(method, urlStr string, body interface{}) 
 	if err != nil {
 		return nil, err
 	}
+	fmt.Printf("%s: %s\n", urlStr, string(buf))
 	req, err := c.NewRequest(method, urlStr, buf)
 	if err != nil {
 		return nil, err
